@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "rendering-context.h": "c"
+        "*.ejs": "html",
+        "rendering-context.h": "c",
+        "rendering-context-base.h": "c"
     },
     "javascript.preferences.quoteStyle": "single"
 }

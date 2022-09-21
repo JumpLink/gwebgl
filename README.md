@@ -22,13 +22,20 @@ sudo meson install -C build
 ```
 
 You may need to change the installation prefix to /usr for gobject-introspection
-to work. Do this by chaging the setup command:
+to work. Do this by changing the setup command:
 ```
 meson setup --prefix=/usr build .
 ```
 or run:
 ```
 meson configure --prefix=/usr build
+```
+
+To uninstall the files again run:
+
+```
+cd build
+sudo ninja uninstall
 ```
 
 # Using the library
