@@ -1,3 +1,5 @@
+// LD_LIBRARY_PATH=build GI_TYPELIB_PATH=build gjs -m test.js
+
 import Gwebgl from 'gi://gwebgl';
 
 print("Gwebgl", Object.keys(Gwebgl))

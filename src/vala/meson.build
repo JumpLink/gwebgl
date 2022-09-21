@@ -5,7 +5,6 @@ vapi_dir = meson.current_source_dir() / 'vapi'
 add_project_arguments(
     [
         '--vapidir', vapi_dir,
-        '-X', '-shared'
     ],
     language: 'vala'
 )
@@ -23,8 +22,9 @@ libGwebgl = shared_library('gwebgl', sources,
 
 g_ir_compiler = find_program('g-ir-compiler')
 
-custom_target('gwebgl-0.1.typelib', command: [g_ir_compiler, '--shared-library', 'libgwebgl.so', '--output', '@OUTPUT@', '@INPUT@'],
-              input: meson.current_build_dir() / 'gwebgl-0.1.gir',
+# TODO not working if gwebgl-0.1.gir not exists
+custom_target('gwebgl-0.1.typelib', command: [g_ir_compiler, '--shared-library', 'libgwebgl.so', '--output', '@OUTPUT@', meson.current_build_dir() / 'gwebgl-0.1.gir'],
+              #input: meson.current_build_dir() / 'gwebgl-0.1.gir',
               output: 'gwebgl-0.1.typelib',
               depends: libGwebgl,
               install: true,
