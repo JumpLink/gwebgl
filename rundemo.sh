@@ -15,4 +15,4 @@ export GDK_DEBUG=${GDK_DEBUG:+${GDK_DEBUG},}gl-gles
 #    --suppressions=/usr/share/glib-2.0/valgrind/glib.supp \
 #    --suppressions=/usr/share/clutter-1.0/valgrind/clutter.supp \
 #    --suppressions=/usr/share/gjs-1.0/valgrind/gjs.supp \
-    /usr/bin/gjs -m ./gjs_src/demo/main.js
+    /usr/bin/gjs -m ./examples/demo-2/main.js

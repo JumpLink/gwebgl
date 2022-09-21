@@ -5,8 +5,8 @@ import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk?version=4.0';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import system from 'system';
-import {WebGLRenderingContext} from '../WebGLRenderingContext.js';
-import * as glmatrix from './gl-matrix.js';
+import {WebGLRenderingContext} from '../../src/js/WebGLRenderingContext.js';
+// import * as glmatrix from './gl-matrix.js';
 import {main} from './webgl-demo.js';
 
 let canvas = null;

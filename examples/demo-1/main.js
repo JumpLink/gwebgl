@@ -1,10 +1,10 @@
 import Gtk from 'gi://Gtk?version=4.0';
 import GLib from 'gi://GLib';
-import GObject from 'gi://GObject';
+// import GObject from 'gi://GObject';
 import Gio from 'gi://Gio';
 //import Gwebgl from 'gi://Gwebgl';
 //const WebGLRenderingContext = Gwebgl.WebGLRenderingContext;
-import {WebGLRenderingContext} from './gjs_src/WebGLRenderingContext.js';
+import {WebGLRenderingContext} from '../../src/js/WebGLRenderingContext.js';
 
 
 let rendered = false;
@@ -84,8 +84,8 @@ function activate(app) {
     const win = Gtk.ApplicationWindow.new(app);
     win.set_default_size(800, 600);
     const glarea = Gtk.GLArea.new();
-    //glarea.set_required_version(2, 0);
-    //glarea.set_use_es(true);
+    // glarea.set_required_version(2, 0);
+    // glarea.set_use_es(true);
     const gl = WebGLRenderingContext.new_for_gtk_gl_area(glarea);
     glarea.connect('render', () => {
         render(glarea, gl);
@@ -117,7 +117,7 @@ function activate(app) {
         win.set_child(glarea);
         win.present();
     }
-    //GLib.timeout_add(GLib.PRIORITY_DEFAULT_IDLE, 1000, () => tick(glarea));
+    // GLib.timeout_add(GLib.PRIORITY_DEFAULT_IDLE, 1000, () => tick(glarea));
     GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => tick(glarea));
 }
 
