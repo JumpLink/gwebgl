@@ -2,6 +2,7 @@
 
 static gboolean gwebglgtk_queue_render_idle_callback(gpointer glarea)
 {
+    g_print("gwebglgtk_queue_render_idle_callback");
     gtk_gl_area_queue_render(glarea);
     return FALSE;
 }
@@ -19,5 +20,6 @@ static gboolean gwebglgtk_queue_render_idle_callback(gpointer glarea)
  */
 void gwebglgtk_queue_render_when_idle(GtkGLArea *glarea)
 {
+    g_print("gwebglgtk_queue_render_when_idle");
     g_idle_add(gwebglgtk_queue_render_idle_callback, glarea);
 }

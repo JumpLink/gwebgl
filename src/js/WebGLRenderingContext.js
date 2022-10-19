@@ -1,30 +1,16 @@
 import GObject from 'gi://GObject';
 import Gwebgl from 'gi://Gwebgl';
-
-import { mixinWebGLRenderingContextBase } from './WebGLRenderingContextBase.js';
-
-// const Gjs_WebGLRenderingContext = mixinWebGLRenderingContextBase(
-//     Gwebgl.WebGLRenderingContext);
-
-export function addGLConstants(giBaseClass, proto) {
-    const hash = giBaseClass.get_webgl_constants();
-    for (const [k, v] of Object.entries(hash)) {
-        Object.defineProperty(proto, k, {value: v});
-    }
-}
+import { addGLConstants } from './internal.js';
 
 export const WebGLRenderingContext = GObject.registerClass({
     GTypeName: 'WebGLRenderingContext'
 }, class WebGLRenderingContext extends Gwebgl.WebGLRenderingContext {
-
-// export class WebGLRenderingContext extends Gwebgl.WebGLRenderingContext {
 
     constructor(config) {
         super();
         this.gtk_gl_area = config.gtk_gl_area;
         addGLConstants(Gwebgl.WebGLRenderingContextBase, this);
     }
-
 
     get canvas() {
         // TODO: We should also be able to use a Gdk context for offscreen

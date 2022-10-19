@@ -2,8 +2,6 @@ project('gwebgl', 'c')
 
 gnome = import('gnome')
 
-gwincdir = get_option('includedir') / 'gwebgl'
-
 libgwebgl = library('gwebgl', ['src/c/gwebgl/rendering-context-base.c', 'src/c/gwebgl/rendering-context.c'], dependencies: [dependency('gdk-pixbuf-2.0'), dependency('epoxy')],
     install: true)
 

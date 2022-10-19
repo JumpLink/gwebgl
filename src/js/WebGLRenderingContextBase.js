@@ -1,6 +1,5 @@
-import GObject from 'gi://GObject';
-import Gtk from 'gi://Gtk';
 import Gwebgl from 'gi://Gwebgl';
+import { addGLConstants } from './internal.js';
 
 // The wrapper methods for WebGLRenderingContextBase are added as a mixin
 // because they may have to be added to more than one base class. For WebGL 1
@@ -21,17 +20,6 @@ export function mixinWebGLRenderingContextBase(parentClass) {
     addGLConstants(Gwebgl.WebGLRenderingContextBase, namer[name].prototype);
 
     return namer[name];
-    // return GObject.registerClass({
-    //     GTypeName: name,
-    //     Properties: {
-    //         'gtk-gl-area': GObject.param_spec_object(
-    //             'gtk-gl-area', 'gtk-gl-area', 'GtkGLArea',
-    //             Gtk.GLArea.$gtype,
-    //             GObject.ParamFlags.READABLE | GObject.ParamFlags.WRITABLE |
-    //                 GObject.ParamFlags.CONSTRUCT_ONLY,
-    //         ),
-    //     },
-    // }, namer[name]);
 }
 
 

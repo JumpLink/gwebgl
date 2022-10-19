@@ -85,7 +85,7 @@ function activate(app) {
     win.set_default_size(800, 600);
     const glarea = Gtk.GLArea.new();
     // glarea.set_required_version(2, 0);
-    // glarea.set_use_es(true);
+    glarea.set_use_es(true);
     const gl = WebGLRenderingContext.new_for_gtk_gl_area(glarea);
     glarea.connect('render', () => {
         render(glarea, gl);
