@@ -2,7 +2,8 @@
     "files.associations": {
         "*.ejs": "html",
         "rendering-context.h": "c",
-        "rendering-context-base.h": "c"
+        "rendering-context-base.h": "c",
+        "gl.h": "c"
     },
     "javascript.preferences.quoteStyle": "single"
 }
