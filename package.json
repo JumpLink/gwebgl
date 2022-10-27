@@ -1,0 +1,32 @@
+{
+  "name": "gwebgl",
+  "version": "0.0.1",
+  "description": "Provides a GObject Introspectable wrapper library for OpenGL ES that uses an API compatible with WebGL",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "build": "yarn run init:meson && yarn run build:meson",
+    "init:meson": "meson setup build .",
+    "build:meson": "meson compile -C build",
+    "start:demo-fade": "./runexample.sh demo-fade",
+    "start:webgl-tutorial-01": "./runexample.sh webgl-tutorial-01",
+    "start:webgl-tutorial-05": "./runexample.sh webgl-tutorial-05",
+    "start:webgl-tutorial-07": "./runexample.sh webgl-tutorial-07"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realh/gwebgl.git"
+  },
+  "keywords": [
+    "gjs",
+    "webgl"
+  ],
+  "author": "Tony Houghton",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/realh/gwebgl/issues"
+  },
+  "homepage": "https://github.com/realh/gwebgl#readme"
+}

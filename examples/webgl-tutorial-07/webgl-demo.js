@@ -1,5 +1,5 @@
 import glmatrix from './gl-matrix.js';
-const {mat4, vec4} = glmatrix;
+const {mat4} = glmatrix;
 
 var cubeRotation = 0.0;
 

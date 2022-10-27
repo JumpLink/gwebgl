@@ -35,6 +35,7 @@ function activate(app) {
     win.set_default_size(800, 600);
     const glarea = Gtk.GLArea.new();
     glarea.set_use_es(true);
+    glarea.set_required_version(3, 2);
 
     let gl;
     glarea.connect('render', () => {
@@ -44,32 +45,21 @@ function activate(app) {
         render(glarea, gl);
         return true;
     });
-    glarea.connect('create-context', () => {
-        console.log("create-context");
-        try {
-            const surface = glarea.get_native().get_surface();
-            const ctx = surface.create_gl_context();
-            ctx.set_debug_enabled(true);
-            ctx.set_use_es(1);
-            ctx.set_required_version(2, 0);
+    // glarea.connect('create-context', () => {
+    //     console.log("create-context");
+    //     try {
+    //         const surface = glarea.get_native().get_surface();
+    //         const ctx = surface.create_gl_context();
+    //         ctx.set_debug_enabled(true);
+    //         ctx.set_use_es(1);
+    //         ctx.set_required_version(2, 0);
 
-            return ctx;
-        } catch (e) {
-            console.error(e);
-            return null;
-        }
-    });
-
-    glarea.connect('realize', (glarea) => {
-        console.log("realize");
-        glarea.make_current();
-        const err = glarea.get_error();
-        if(err) {
-            console.error("Error on realize glarea!");
-        }
-        const canvas = new GjsifyHTMLCanvasElement(glarea);
-        gl = canvas.getContext("webgl");
-    });
+    //         return ctx;
+    //     } catch (e) {
+    //         console.error(e);
+    //         return null;
+    //     }
+    // });
 
     win.set_child(glarea);
     win.present();

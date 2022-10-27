@@ -30,7 +30,7 @@ gwebgl_webgl_rendering_context_bufferData(
     const GByteArray *data,
     guint usage)
 {
-    (void) self;
+    (void) self;    
     glBufferData(target, data ? data->len : 0, 
         data ? (gpointer) data->data : NULL, usage);
 }

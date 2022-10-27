@@ -190,7 +190,7 @@ function initBuffers(gl) {
 
   // Select the positionBuffer as the one to apply buffer
   // operations to from here out.
-
+  console.log("positionBuffer", positionBuffer);
   gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
   // Now create an array of positions for the square.
@@ -205,7 +205,7 @@ function initBuffers(gl) {
   // Now pass the list of positions into WebGL to build the
   // shape. We do this by creating a Float32Array from the
   // JavaScript array, then use it to fill the current buffer.
-
+  console.log("bufferData", gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
   gl.bufferData(gl.ARRAY_BUFFER,
                 new Float32Array(positions),
                 gl.STATIC_DRAW);
@@ -237,6 +237,7 @@ function drawScene(gl, programInfo, buffers) {
     const stride = 0;
     const offset = 0;
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
+
     gl.vertexAttribPointer(
         programInfo.attribLocations.vertexPosition,
         numComponents,
@@ -244,17 +245,19 @@ function drawScene(gl, programInfo, buffers) {
         normalize,
         stride,
         offset);
+
     gl.enableVertexAttribArray(
         programInfo.attribLocations.vertexPosition);
   }
 
   // Tell WebGL to use our program when drawing
-
+  // console.log("programInfo.program", programInfo.program);
   gl.useProgram(programInfo.program);
 
   // Set the shader uniforms
   colourChanger.update();
-  gl.uniform4f(programInfo.uniformLocations.colour, ...colourChanger.rgba);
+  const rgba = colourChanger.rgba;
+  gl.uniform4f(programInfo.uniformLocations.colour, rgba[0], rgba[1], rgba[2], rgba[3]);
 
   {
     const offset = 0;

@@ -1,9 +1,17 @@
 {
     "files.associations": {
+        "*.json.liquid": "json",
+        "*.yaml.liquid": "yaml",
+        "*.md.liquid": "markdown",
+        "*.js.liquid": "liquid-javascript",
+        "*.css.liquid": "liquid-css",
+        "*.scss.liquid": "liquid-scss",
         "*.ejs": "html",
         "rendering-context.h": "c",
         "rendering-context-base.h": "c",
-        "gl.h": "c"
+        "gl.h": "c",
+        "compare": "c",
+        "type_traits": "c"
     },
     "javascript.preferences.quoteStyle": "single"
 }

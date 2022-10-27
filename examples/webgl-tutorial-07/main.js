@@ -6,7 +6,6 @@ import Gtk from 'gi://Gtk?version=4.0';
 import GdkPixbuf from 'gi://GdkPixbuf';
 import system from 'system';
 import {WebGLRenderingContext} from '../../src/js/WebGLRenderingContext.js';
-// import * as glmatrix from './gl-matrix.js';
 import {main} from './webgl-demo.js';
 
 let canvas = null;
@@ -51,7 +50,6 @@ function activate(app, cb) {
         canvas = Gtk.GLArea.new();
         canvas.set_has_depth_buffer(true);
         canvas.set_use_es(true);
-        canvas.set_required_version(2, 0);
         canvas.connect('unrealize', () => {
             if (renderTag !== null) {
                 canvas.disconnect(renderTag);
